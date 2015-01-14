@@ -6,6 +6,7 @@ angular.module('modulusOne.showControllers', [
 
     $scope.module = module;
     $rootScope.title = $scope.module.name;
+    $scope.stateName = "show.module";
 
     // Load all releases for this module.
     $scope.module.all('releases').getList({sort: 'moduleVersion',
@@ -211,6 +212,8 @@ $stateParams, $state) {
    * Calls the API to create a Release, then passes that release on
    * @return {Promise} Promise resolving with the Release to upload to
    */
+   $scope.stateName = "show.newRelease"
+
   $scope.createResources = function createResources() {
     return $scope.module.all('releases').post({
       module: {id: $scope.module.id}
